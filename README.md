@@ -1,24 +1,24 @@
 # Laporan Proyek 2: Analisis Sentimen & Topik Ulasan E-Commerce
 
 **Penulis:** [Wahyu Fajar Firmansyah]
-[cite_start]**Subjek:** [Wahyu Fajar Firmansya] - Tugas Proyek 2 – PRIMA PTKI [cite: 264]
+**Subjek:** [Project Challenge Assigment] - Tugas Proyek 2 – PRIMA PTKI
 
 ---
 
 ## 1. Latar Belakang Bisnis
 
-[cite_start]Tim E-Commerce perusahaan mengalami tantangan bisnis yang signifikan, yaitu **penurunan *sales* sebesar -30%** dibandingkan bulan sebelumnya[cite: 221]. [cite_start]Evaluasi sebelumnya terhadap strategi periklanan (*ads*) tidak memberikan hasil yang signifikan[cite: 222].
+Tim E-Commerce perusahaan mengalami tantangan bisnis yang signifikan, yaitu **penurunan *sales* sebesar -30%** dibandingkan bulan sebelumnya. Evaluasi sebelumnya terhadap strategi periklanan (*ads*) tidak memberikan hasil yang signifikan.
 
-[cite_start]Hal ini mengindikasikan bahwa masalah inti mungkin bukan pada *awareness*, melainkan pada ***customer experience***[cite: 226]. [cite_start]Perusahaan menerima banyak ulasan pelanggan yang tidak terstruktur di berbagai platform, namun belum memiliki sistem otomatis untuk menganalisisnya[cite: 227, 233]. [cite_start]Akibatnya, tim produk dan layanan tidak tahu aspek spesifik apa yang paling dikeluhkan atau dipuji pelanggan [cite: 234][cite_start], sehingga keputusan perbaikan masih berdasarkan asumsi[cite: 235].
+Hal ini mengindikasikan bahwa masalah inti mungkin bukan pada *awareness*, melainkan pada ***customer experience***. Perusahaan menerima banyak ulasan pelanggan yang tidak terstruktur di berbagai platform, namun belum memiliki sistem otomatis untuk menganalisisnya. Akibatnya, tim produk dan layanan tidak tahu aspek spesifik apa yang paling dikeluhkan atau dipuji pelanggan, sehingga keputusan perbaikan masih berdasarkan asumsi.
 
 ## 2. Tujuan Proyek
 
-Berdasarkan *business issue* tersebut, tujuan dari proyek ini adalah[cite: 239]:
+Berdasarkan *business issue* tersebut, tujuan dari proyek ini adalah:
 
 1.  **Mengembangkan sistem analisis sentimen otomatis** untuk memproses ulasan pelanggan e-commerce.
 2.  **Mengidentifikasi topik atau aspek spesifik** yang dibicarakan pelanggan dalam ulasan mereka.
 3.  **Menentukan distribusi sentimen (positif dan negatif) per aspek** untuk menemukan area kekuatan dan kelemahan layanan.
-4.  **Memberikan *insight* bisnis yang *actionable*** kepada tim produk dan layanan untuk perbaikan[cite: 241, 242].
+4.  **Memberikan *insight* bisnis yang *actionable*** kepada tim produk dan layanan untuk perbaikan.
 
 ## 3. Metodologi
 
@@ -27,15 +27,15 @@ Untuk mencapai tujuan tersebut, proyek ini menggunakan pendekatan *Neural NLP* m
 ### a. Model Analisis Sentimen (Klasifikasi)
 
 * **Tujuan:** Mengklasifikasikan ulasan sebagai 'Positif' atau 'Negatif'.
-* **Teknik:** *Context Engineering* [cite: 127] + Klasifikasi.
+* **Teknik:** *Context Engineering* + Klasifikasi.
 * **Alur Kerja:**
-    1.  Teks ulasan diubah menjadi representasi vektor numerik (embedding) menggunakan model *SentenceTransformer* (`paraphrase-multilingual-MiniLM-L12-v2`). [cite_start]Model ini dipilih karena kemampuannya memahami konteks kalimat[cite: 133].
+    1.  Teks ulasan diubah menjadi representasi vektor numerik (embedding) menggunakan model *SentenceTransformer* (`paraphrase-multilingual-MiniLM-L12-v2`). Model ini dipilih karena kemampuannya memahami konteks kalima.
     2.  Vektor embedding tersebut digunakan untuk melatih model klasifikasi **Logistic Regression** menggunakan data berlabel (`data labeling history sentimen.txt`).
 
 ### b. Model Topik (Analisis Aspek)
 
-* [cite_start]**Tujuan:** Menemukan tema atau aspek tersembunyi dari ulasan pelanggan[cite: 162].
-* **Teknik:** *Topic Modeling*[cite: 162].
+* **Tujuan:** Menemukan tema atau aspek tersembunyi dari ulasan pelanggan.
+* **Teknik:** *Topic Modeling*.
 * **Alur Kerja:**
     1.  Model **BERTopic** digunakan pada data ulasan non-label (`data non label ecommerce.txt`).
     2.  BERTopic memanfaatkan *embedding* dari *SentenceTransformer* (model yang sama dengan di atas) untuk mengelompokkan ulasan yang mirip secara semantik.
@@ -66,16 +66,16 @@ Dari data di atas, kita mendapatkan beberapa *insight* kunci:
 
 Berdasarkan *insight* berbasis data di atas, berikut adalah rekomendasi strategis untuk tim E-Commerce:
 
-1.  **(Prioritas 1 - Short-term)** [cite: 246]
+1.  **(Prioritas 1 - Short-term)**
     * **Area:** Logistik & Pengiriman.
     * **Rekomendasi:** Segera lakukan audit dan evaluasi terhadap mitra kurir yang digunakan. Terapkan SLA (Service Level Agreement) yang lebih ketat terkait estimasi waktu pengiriman dan penanganan barang (untuk mengurangi kerusakan).
 
-2.  **(Prioritas 2 - Mid-term)** [cite: 247]
+2.  **(Prioritas 2 - Mid-term)**
     * **Area:** Customer Service.
     * **Rekomendasi:** Implementasikan standarisasi waktu respons (SLA) untuk balasan *chat* admin/CS. Berikan pelatihan ulang mengenai penanganan komplain (*complaint handling*) agar lebih solutif dan profesional.
 
-3.  **(Prioritas 3 - Mid-term)** [cite: 247]
+3.  **(Prioritas 3 - Mid-term)**
     * **Area:** Marketing & Produk.
     * **Rekomendasi:** Pertahankan kualitas produk yang sudah baik. Gunakan *insight* positif dari aspek "Kualitas Produk" sebagai materi utama dalam kampanye marketing untuk membangun kepercayaan (*brand trust*).
 
-Dengan fokus perbaikan pada area **Pengiriman** dan **Customer Service**, perusahaan dapat secara langsung mengatasi keluhan utama pelanggan, yang diharapkan dapat meningkatkan *customer experience* dan berkontribusi pada pemulihan *sales*[cite: 248].
+Dengan fokus perbaikan pada area **Pengiriman** dan **Customer Service**, perusahaan dapat secara langsung mengatasi keluhan utama pelanggan, yang diharapkan dapat meningkatkan *customer experience* dan berkontribusi pada pemulihan *sales*.
